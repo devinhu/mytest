@@ -48,7 +48,7 @@ public class AddNearbyFriend extends Common {
                     waittime();
 
                     Log.e(TAG, "只看女生");
-                    mDevice.findObject(new UiSelector().text("只看女生")).click();
+                    mDevice.findObject(new UiSelector().text("只看男生")).click();
                     waittime(5000);
 
                     UiScrollable uiScrollable = new UiScrollable(new UiSelector().className(ListView.class));

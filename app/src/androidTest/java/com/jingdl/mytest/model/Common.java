@@ -2,9 +2,12 @@ package com.jingdl.mytest.model;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.UiDevice;
+import android.support.test.uiautomator.UiObject;
+import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.Until;
 import android.util.Log;
 import java.util.Random;
@@ -51,5 +54,22 @@ public class Common {
     public void waittime(long time){
         Log.e(TAG, "waittime="+time);
         mDevice.wait(Until.hasObject(By.pkg(mDevice.getLauncherPackageName()).depth(0)), time);
+    }
+
+    public void longclick(UiObject uiObject){
+        try {
+            if(uiObject != null && uiObject.exists()){
+                Rect stRect = uiObject.getVisibleBounds();
+                int nPressX = stRect.centerX();
+                int nPressY = stRect.centerY();
+
+                //100对应着0.5秒
+                int nSecondsSteps = 200;
+                int nSteps = nSecondsSteps * 1;
+                mDevice.swipe(nPressX, nPressY, nPressX, nPressY,nSteps);
+            }
+        } catch (UiObjectNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
