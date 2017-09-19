@@ -40,20 +40,33 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="adjustPan"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
+
+        <!--集成有赞SDK-->
+        <meta-data
+            android:name="YZ_APP_ID"
+            android:value="ca2fe946f9c32fc381"/>
+        <meta-data
+            android:name="YZ_APP_SECRET"
+            android:value="6c41509285b66fd9ce049b2c7368d5fc"/>
+
     </application>
 
 </manifest>
