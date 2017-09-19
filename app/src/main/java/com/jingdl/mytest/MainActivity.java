@@ -77,7 +77,6 @@ public class MainActivity extends Activity {
 
                 sentText();
 
-                onPerformClick(672.37744f, 462.7215f);
 
             }
         });
@@ -109,6 +108,9 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 webview.evaluateJavascript("javascript:document.getElementById('friends_application').value = 'dmeo12222';", null);
+
+                onPerformClick(358.6679f, 1717.0681f);
+
             }
         }, 3000);
     }
